@@ -1,0 +1,21 @@
+h2{
+  color: #668FBF;
+  font-size: 2.3rem;
+  /* font-family: 'Montserrat',sans-serif; */
+  font-weight: lighter;
+  padding: 10px;
+}
+.u1{
+  color: red;
+}
+.u2{
+  color: red;
+}
+
+.real-time-data{
+  align-content: center;
+  text-align:center;
+  position: relative;
+  padding-top: 100px;
+
+}

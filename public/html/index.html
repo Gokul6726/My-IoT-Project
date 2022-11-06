@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="\styles\styles.css">
+  </head>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
+  <body>
+      <!-- <div id="updates"></div>
+      <div id="updates2"></div> -->
+
+      <div class="real-time-data">
+
+      <h2>simple patient monitoring website</h2>
+      <h1>The real time Pulse = <span class="u1 "id="updates"></span> Bpm </h1>
+      <h1>The real time Temperature = <span class="u2" id="updates2"></span> °C </h1>
+
+      </div>
+      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  </body>
+  <script type="text/javascript">
+
+      var source = new EventSource('/new-project')
+
+      source.addEventListener('message', function(e) {
+
+        // const { ticker } = JSON.parse(e.data);
+         // document.getElementById('updates').innerText = {ticker};
+         // var value = e.data;
+         var value2 = e.data.split('\n')
+         var my_first_val = value2[0];
+         var my_second_val = value2[1];
+         if (my_first_val>90) {
+           alert("value greater than 90")
+         }
+
+         // document.getElementById('updates').innerText = value;
+         // console.log(value2);
+         // console.log(my_first);
+         document.getElementById('updates').innerText = my_first_val;
+         document.getElementById('updates2').innerText = my_second_val;
+
+
+
+      }, false)
+  </script>
+</html>
+
+<!-- //http://localhost/html/index.html -->
