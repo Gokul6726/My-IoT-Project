@@ -12,13 +12,37 @@
 
       <div class="real-time-data">
 
-      <h2>simple patient monitoring website</h2>
+      <h2>Patient Monitoring Website</h2>
       <h1>The real time Pulse = <span class="u1 "id="updates"></span> Bpm </h1>
       <h1>The real time Temperature = <span class="u2" id="updates2"></span> °C </h1>
 
       </div>
-      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+<div class="submit-form">
+  <form action="http://localhost" method="post">
+    <label for="dateInput1">Date from: </label>
+    <input id="dateInput1" type="date" name="from">
+    <label for="dateInput2">Date to: </label>
+    <input id="dateInput2" type="date" name="to">
+    <button type="submit" >Download</button>
+  </form>
+
+</div>
+<!-- <div class="spreadsheet"> -->
+  <!-- <iframe width="100%" height="100%" scrolling="yes" src="https://1drv.ms/x/s!Ah-oPmW7xXqx8HQK47i3I34xBFRS?e=g0WJnt"></iframe> -->
+   <!-- width="402" height="346" frameborder="0" scrolling="no" -->
+<!-- </div> -->
+
+<!-- <div id="myExcelDiv" style="width: 402px; height: 346px"></div> -->
+<!-- * This code uses the Microsoft Office Excel Javascript object model to programmatically insert the
+	 * Excel Web App into a div with id=myExcelDiv. The full API is documented at
+	 * https://msdn.microsoft.com/en-US/library/hh315812.aspx. There you can find out how to programmatically get
+	 * values from your Excel file and how to use the rest of the object model. -->
+<!-- <script type="text/javascript" src="https://1drv.ms/x/s!Ah-oPmW7xXqx8HQK47i3I34xBFRS?e=b8cqzE"></script> -->
+<div class="sprdsht">
+
+</div>
 
   </body>
   <script type="text/javascript">
@@ -33,9 +57,7 @@
          var value2 = e.data.split('\n')
          var my_first_val = value2[0];
          var my_second_val = value2[1];
-         if (my_first_val>90) {
-           alert("value greater than 90")
-         }
+
 
          // document.getElementById('updates').innerText = value;
          // console.log(value2);
@@ -50,3 +72,5 @@
 </html>
 
 <!-- //http://localhost/html/index.html -->
+<!-- https://onedrive.live.com/view.aspx?resid=B17AC5BB653EA81F!14452&ithint=file%2cxlsx&authkey=!AArjuLcjfjEEVFI -->
+<!-- https://1drv.ms/x/s!Ah-oPmW7xXqx8HQK47i3I34xBFRS?e=g0WJnt -->
