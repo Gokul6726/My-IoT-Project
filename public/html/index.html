@@ -1,76 +1,221 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="\styles\styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-  </head>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
-  <body>
-      <!-- <div id="updates"></div>
+
+<head>
+  <meta charset="utf-8">
+  <title>IoT Patient Monitoring</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="\styles\styles.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+  <!-- CSS only -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://localhost/html/index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/html/index.html">Reload site</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- <div id="updates"></div>
       <div id="updates2"></div> -->
 
-      <div class="real-time-data">
+  <div class="real-time-data">
 
-      <h2>Patient Monitoring Website</h2>
-      <h1>The real time Pulse = <span class="u1 "id="updates"></span> Bpm </h1>
-      <h1>The real time Temperature = <span class="u2" id="updates2"></span> °C </h1>
+    <h2>Patient Monitoring Website</h2>
+    <h1>The real time Pulse = <span class="u1 " id="updates"></span> Bpm </h1>
+    <h1>The real time Temperature = <span class="u2" id="updates2"></span> °C </h1>
 
-      </div>
-      <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+  </div>
+  <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
-<div class="submit-form">
-  <form action="http://localhost" method="post">
-    <label for="dateInput1">Date from: </label>
-    <input id="dateInput1" type="date" name="from">
-    <label for="dateInput2">Date to: </label>
-    <input id="dateInput2" type="date" name="to">
-    <button type="submit" >Submit</button>
-  </form>
+  <div class="submit-form">
+    <form action="http://localhost" method="post">
+      <label for="dateInput1">Date from: </label>
+      <input id="dateInput1" type="date" name="from">
+      <label for="dateInput2">Date to: </label>
+      <input id="dateInput2" type="date" name="to">
+      <button type="submit">Submit</button>
+    </form>
 
-</div>
-<!-- <div class="spreadsheet"> -->
+  </div>
+  <!-- <div class="spreadsheet"> -->
   <!-- <iframe width="100%" height="100%" scrolling="yes" src="https://1drv.ms/x/s!Ah-oPmW7xXqx8HQK47i3I34xBFRS?e=g0WJnt"></iframe> -->
-   <!-- width="402" height="346" frameborder="0" scrolling="no" -->
-<!-- </div> -->
+  <!-- width="402" height="346" frameborder="0" scrolling="no" -->
+  <!-- </div> -->
 
-<!-- <div id="myExcelDiv" style="width: 402px; height: 346px"></div> -->
-<!-- * This code uses the Microsoft Office Excel Javascript object model to programmatically insert the
+  <!-- <div id="myExcelDiv" style="width: 402px; height: 346px"></div> -->
+  <!-- * This code uses the Microsoft Office Excel Javascript object model to programmatically insert the
 	 * Excel Web App into a div with id=myExcelDiv. The full API is documented at
 	 * https://msdn.microsoft.com/en-US/library/hh315812.aspx. There you can find out how to programmatically get
 	 * values from your Excel file and how to use the rest of the object model. -->
-<!-- <script type="text/javascript" src="https://1drv.ms/x/s!Ah-oPmW7xXqx8HQK47i3I34xBFRS?e=b8cqzE"></script> -->
-<div class="sprdsht">
+  <!-- <script type="text/javascript" src="https://1drv.ms/x/s!Ah-oPmW7xXqx8HQK47i3I34xBFRS?e=b8cqzE"></script> -->
+  <div class="sprdsht">
 
-</div>
+  </div>
 
-  </body>
-  <script type="text/javascript">
+  <div class="tbl">
 
-      var source = new EventSource('/new-project')
+    <input type="file" id="csvFileInput" style="padding-bottom: 15px">
+        <table id="csvRoot"></table>
 
-      source.addEventListener('message', function(e) {
+      <script src="https://cdn.jsdelivr.net/npm/papaparse@5.2.0/papaparse.min.js"></script>
 
-        // const { ticker } = JSON.parse(e.data);
-         // document.getElementById('updates').innerText = {ticker};
-         // var value = e.data;
-         var value2 = e.data.split('\n')
-         var my_first_val = value2[0];
-         var my_second_val = value2[1];
+  </div>
+  <div class="footer">
+    <footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+  </div>
+  <!-- Copyright -->
+</footer>
+  </div>
+
+</body>
+<script type="text/javascript">
+  var source = new EventSource('/new-project')
+
+  source.addEventListener('message', function(e) {
+
+    // const { ticker } = JSON.parse(e.data);
+    // document.getElementById('updates').innerText = {ticker};
+    // var value = e.data;
+    var value2 = e.data.split('\n')
+    var my_first_val = value2[0];
+    var my_second_val = value2[1];
 
 
-         // document.getElementById('updates').innerText = value;
-         // console.log(value2);
-         // console.log(my_first);
-         document.getElementById('updates').innerText = my_first_val;
-         document.getElementById('updates2').innerText = my_second_val;
+    // document.getElementById('updates').innerText = value;
+    // console.log(value2);
+    // console.log(my_first);
+    document.getElementById('updates').innerText = my_first_val;
+    document.getElementById('updates2').innerText = my_second_val;
 
 
 
-      }, false)
-  </script>
+  }, false)
+
+
+  // table element program
+  class TableCsv {
+    /**
+     * @param {HTMLTableElement} root The table element which will display the CSV data.
+     */
+    constructor(root) {
+      this.root = root;
+    }
+
+    /**
+     * Clears existing data in the table and replaces it with new data.
+     *
+     * @param {string[][]} data A 2D array of data to be used as the table body
+     * @param {string[]} headerColumns List of headings to be used
+     */
+    update(data, headerColumns = []) {
+      this.clear();
+      this.setHeader(headerColumns);
+      this.setBody(data);
+    }
+
+    /**
+     * Clears all contents of the table (incl. the header).
+     */
+    clear() {
+      this.root.innerHTML = "";
+    }
+
+    /**
+     * Sets the table header.
+     *
+     * @param {string[]} headerColumns List of headings to be used
+     */
+    setHeader(headerColumns) {
+      this.root.insertAdjacentHTML(
+        "afterbegin",
+        `
+              <thead>
+                  <tr>
+                      ${headerColumns.map((text) => `<th>${text}</th>`).join("")}
+                  </tr>
+              </thead>
+          `
+      );
+    }
+
+    /**
+     * Sets the table body.
+     *
+     * @param {string[][]} data A 2D array of data to be used as the table body
+     */
+    setBody(data) {
+      const rowsHtml = data.map((row) => {
+        return `
+                  <tr>
+                      ${row.map((text) => `<td>${text}</td>`).join("")}
+                  </tr>
+              `;
+      });
+
+      this.root.insertAdjacentHTML(
+        "beforeend",
+        `
+              <tbody>
+                  ${rowsHtml.join("")}
+              </tbody>
+          `
+      );
+    }
+  }
+
+  const tableRoot = document.querySelector("#csvRoot");
+  const csvFileInput = document.querySelector("#csvFileInput");
+  const tableCsv = new TableCsv(tableRoot);
+
+  csvFileInput.addEventListener("change", (e) => {
+    Papa.parse(csvFileInput.files[0], {
+      delimiter: ",",
+      skipEmptyLines: true,
+      complete: (results) => {
+        tableCsv.update(results.data.slice(1), results.data[0]);
+      }
+    });
+  });
+// table element program end
+
+</script>
+
 </html>
 
 <!-- //http://localhost/html/index.html -->
