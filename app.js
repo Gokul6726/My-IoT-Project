@@ -14,7 +14,8 @@ app.use('/', express.static('public'));
 var dataValue = "Real-Time Pulse ";
 var pulseValue = 1;
 
-const url = "https://api.thingspeak.com/channels/1780944/feeds.json?api_key=X5A83VA0WFBHKWRV&results=2"
+// const url = "https://api.thingspeak.com/channels/1780944/feeds.json?api_key=X5A83VA0WFBHKWRV&results=2"
+const url = "https://api.thingspeak.com/channels/1943514/feeds.json?api_key=UKV05R56CPXEVFRA&results=2"
 
 app.get('/new-project', function(req, res) {
 
@@ -30,8 +31,9 @@ app.get('/new-project', function(req, res) {
     https.get(url, function(response) {
       response.on("data", function(data) {
         patientData = JSON.parse(data)
-        pulse = patientData.feeds[1].field1;
-        temperature = patientData.feeds[1].field2;
+        pulse = patientData.feeds[0].field1;
+        spo2 = patientData.feeds[0].field2;
+        temperature = patientData.feeds[0].field3;
         var pulseValue = pulse;
         dataValue = "Real-Time Pulse " + pulseValue;
         // console.log("SENT: "+ dataValue);
@@ -39,6 +41,7 @@ app.get('/new-project', function(req, res) {
 
         // res.write("data: "+ pulse + temperature +"\n\n")
         res.write("data: " + pulse + "\n")
+        res.write("data: " + spo2 + "\n")
         res.write("data: " + temperature + "\n\n")
         // res.write("data: "\n\n")
         // res.write(`id: ${(new Date()).toLocaleTimeString()}\ndata: ${data}\n\n`);
@@ -73,7 +76,8 @@ app.get("http://localhost/html/index.html", function(reqs, resp) {
 app.post("/", function(reqs, resp) {
   const query1 = reqs.body.from;
   const query2 = reqs.body.to;
-  const dwnld_url = "https://api.thingspeak.com/channels/1780944/feeds.csv?start=" + query1 + "&end=" + query2;
+  // const dwnld_url = "https://api.thingspeak.com/channels/1780944/feeds.csv?start=" + query1 + "&end=" + query2;
+  const dwnld_url = "https://api.thingspeak.com/channels/1943514/feeds.csv?start=" + query1 + "&end=" + query2;
   // const dwnld_url = "https://api.thingspeak.com/channels/1780944/feeds.csv?start=2022-11-06&end=2022-11-07";
   const file = fs.createWriteStream("file.csv");
   https.get(dwnld_url, function(resp) {
